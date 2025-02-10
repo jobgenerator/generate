@@ -1,116 +1,111 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-
-<body style="width: 100%; background-color: #333333">
-    <style>
-        input[value^="Generate Names"] {
-            font-weight: bold;
-            font-size: 150%
-        }
-        
-        input[value^="Clear Names"] {
-            font-weight: bold;
-            font-size: 150%
-        }
-    </style>
-    <script>
-        let times = 0
-        function rotateonce(names, i) {
-            let jobs = {
-                "manager1": "",
-                "manager2": "",
-                "makerbot1": "",
-                "makerbot2": "",
-                "lab": "",
-                "prusa": "",
-                "backup 1": "",
-                "lazer": ""
-            }
-
-            let start_time = Date.now()
-            let maxSize = 7
-            let keys = Object.keys(jobs)
-            let values = Object.values(jobs)
-            let addedItems = 0
-
-            while (maxSize >= addedItems) {
-
-                if (names.length < 1) {
-                    break
-
-                } else {
-                    let spot = keys[Math.floor(Math.random() * keys.length)]
-                    if (jobs[spot]) {
-                        continue
-                    }
-
-                    let person = names[Math.floor(Math.random() * names.length)]
-
-                    if (!person) {
-                        break
-                    }
-
-                    names = names.filter(entry => entry != person)
-
-                    jobs[spot] = person
-                    addedItems += 1
-
-                }
-            }
-            let element = document.getElementById('job-text-area')
-            let text = element.innerHTML 
-            
-            if (text === "Output Here.") {
-              
-              text = ""
-            } else {
-              
-              text += "<br>"
-            }
-            if (times > 1000) {
-              text = ""
-              times = 0
-            }
-            text += `Click: #${times+1}<br>`
-            times += 1
- 
-            
-            for (const [key, value] of Object.entries(jobs)) {
-                
-                text += `${value} Assigned To ${key}<br>`
-            }
-            if (element.style.fontWeight === "bold") {
-                element.style.fontWeight = "400"
-            }
-            element.innerHTML = text
-            element.focus()
-
-        }
-
-        function startJobs() {
-            for (let i = 0; i < 1; i++) {
-                let names = ["HA", "AR", "BW", "GW", "AC", "HL", "RW", "AB"]
-                rotateonce(names, i + 1)
-            }
-        }
-        function clearNames() {
-            let element = document.getElementById('job-text-area')
-            element.innerHTML = "Output Here."
-            element.style.fontWeight = "bold"
-            
-        }
-    </script>
-    <center>
-        <input style= "background-color: #999999; border: 5px solid black; padding: 5%" type="Submit" value="Generate Names" onclick="startJobs()">
-        <input style= "background-color: #999999; border: 5px solid black; padding: 5%" type="Submit" value="Clear Names" onclick="clearNames()">
-        <br>
-        <br>
-        <div style="box-sizing: border-box; background-color: #999999; border: 5px solid black; padding: 5%">
+   <body style="width: 100%; background-color: #333333">
+      <style>
+         input[value^="Generate Names"] {
+         font-weight: bold;
+         font-size: 150%
+         }
+         input[value^="Clear Names"] {
+         font-weight: bold;
+         font-size: 150%
+         }
+      </style>
+      <script>
+         let times = 0
+         function rotateonce(names, i) {
+             let jobs = {
+                 "manager1": "",
+                 "manager2": "",
+                 "makerbot1": "",
+                 "makerbot2": "",
+                 "lab": "",
+                 "prusa": "",
+                 "backup 1": "",
+                 "lazer": ""
+             }
+         
+             let start_time = Date.now()
+             let maxSize = 7
+             let keys = Object.keys(jobs)
+             let values = Object.values(jobs)
+             let addedItems = 0
+         
+             while (maxSize >= addedItems) {
+         
+                 if (names.length < 1) {
+                     break
+         
+                 } else {
+                     let spot = keys[Math.floor(Math.random() * keys.length)]
+                     if (jobs[spot]) {
+                         continue
+                     }
+         
+                     let person = names[Math.floor(Math.random() * names.length)]
+         
+                     if (!person) {
+                         break
+                     }
+         
+                     names = names.filter(entry => entry != person)
+         
+                     jobs[spot] = person
+                     addedItems += 1
+         
+                 }
+             }
+             let element = document.getElementById('job-text-area')
+             let text = element.innerHTML 
+             
+             if (text === "Output Here.") {
+               
+               text = ""
+             } else {
+               
+               text += "<br>"
+             }
+             if (times > 1000) {
+               text = ""
+               times = 0
+             }
+             text += `Click: #${times+1}<br>`
+             times += 1
+         
+             
+             for (const [key, value] of Object.entries(jobs)) {
+                 
+                 text += `${value} Assigned To ${key}<br>`
+             }
+             if (element.style.fontWeight === "bold") {
+                 element.style.fontWeight = "400"
+             }
+             element.innerHTML = text
+             element.focus()
+         
+         }
+         
+         function startJobs() {
+             for (let i = 0; i < 1; i++) {
+                 let names = ["HA", "AR", "BW", "GW", "AC", "HL", "RW", "AB"]
+                 rotateonce(names, i + 1)
+             }
+         }
+         function clearNames() {
+             let element = document.getElementById('job-text-area')
+             element.innerHTML = "Output Here."
+             element.style.fontWeight = "bold"
+             
+         }
+      </script>
+      <center>
+         <input style= "background-color: #999999; border: 5px solid black; padding: 5%" type="Submit" value="Generate Names" onclick="startJobs()">
+         <input style= "background-color: #999999; border: 5px solid black; padding: 5%" type="Submit" value="Clear Names" onclick="clearNames()">
+         <br>
+         <br>
+         <div style="box-sizing: border-box; background-color: #999999; border: 5px solid black; padding: 5%">
             <texarea style="font-weight: bold" id="job-text-area">Output Here.</texarea>
-        </div>
-       
-       
-    </center>
-</body>
-
+         </div>
+      </center>
+   </body>
 </html>
