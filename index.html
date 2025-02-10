@@ -1,10 +1,5 @@
     <!DOCTYPE html>
 <html>
-    <head>
-        <script>
-           document.getElementById('job-text-area').style.fontWeight = "bold"
-        </script>
-    </head>
 
 <body style="width: 100%; background-color: #333333">
     <style>
@@ -19,7 +14,8 @@
         }
     </style>
     <script>
-        
+        let element = document.getElementById('job-text-area')
+        element.style.fontWeight = "bold"
         let times = 0
         function rotateonce(names, i) {
             let jobs = {
@@ -63,7 +59,7 @@
 
                 }
             }
-            let element = document.getElementById('job-text-area')
+            
             let text = element.innerHTML 
             
             if (text === "Output Here.") {
