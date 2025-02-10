@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<body style="width: 100%">
+    <script>
+        let times = 0
+        function rotateonce(names, i) {
+            let jobs = {
+                "manager1": "",
+                "manager2": "",
+                "makerbot1": "",
+                "makerbot2": "",
+                "lab": "",
+                "prusa": "",
+                "backup 1": "",
+                "lazer": ""
+            }
+
+            let start_time = Date.now()
+            let maxSize = 7
+            let keys = Object.keys(jobs)
+            let values = Object.values(jobs)
+            let addedItems = 0
+
+            while (maxSize >= addedItems) {
+
+                if (names.length < 1) {
+                    break
+
+                } else {
+                    let spot = keys[Math.floor(Math.random() * keys.length)]
+                    if (jobs[spot]) {
+                        continue
+                    }
+
+                    let person = names[Math.floor(Math.random() * names.length)]
+
+                    if (!person) {
+                        break
+                    }
+
+                    names = names.filter(entry => entry != person)
+
+                    jobs[spot] = person
+                    addedItems += 1
+
+                }
+            }
+            let element = document.getElementById('job-text-area')
+            let text = element.innerHTML + "<br>"
+            if (times > 4) {
+              text = ""
+              times = 0
+            }
+            times += 1
+ 
+            
+            for (const [key, value] of Object.entries(jobs)) {
+                text += `${value} Assigned To ${key}<br>`
+            }
+            element.innerHTML = text
+            let end_time = Date.now()
+            let elapsed_time = (end_time - start_time)
+            elapsed_time = elapsed_time /= 1000
+
+
+        }
+
+        function test() {
+            for (let i = 0; i < 1; i++) {
+                let names = ["HA", "AR", "BW", "GW", "AC", "HL", "RW", "AB"]
+                rotateonce(names, i + 1)
+            }
+        }
+    </script>
+    <center>
+        <input type="Submit" value="Generate Names" onclick="test()">
+        <br>
+        <texarea id="job-text-area">
+        </texarea>
+    </center>
+</body>
+
+</html>
