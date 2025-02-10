@@ -64,7 +64,7 @@
               
               text = ""
             } else {
-              element.style.fontWeight = "bold"
+              
               text += "<br>"
             }
             if (times > 1000) {
@@ -76,6 +76,9 @@
  
             
             for (const [key, value] of Object.entries(jobs)) {
+                if (element.style.fontWeight === "bold") {
+                    element.style.fontWeight = "400"
+                }
                 text += `${value} Assigned To ${key}<br>`
             }
             
