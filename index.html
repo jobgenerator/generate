@@ -60,8 +60,10 @@
             let element = document.getElementById('job-text-area')
             let text = element.innerHTML 
             if (text === "Output Here.") {
+              element.style.fontWeight = '400'
               text = ""
             } else {
+              element.style.fontWeight = 'bold'
               text += "<br>"
             }
             if (times > 1000) {
