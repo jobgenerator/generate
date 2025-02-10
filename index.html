@@ -59,11 +59,12 @@
             }
             let element = document.getElementById('job-text-area')
             let text = element.innerHTML 
+            
             if (text === "Output Here.") {
-              element.style.fontWeight = '400'
+              
               text = ""
             } else {
-              element.style.fontWeight = 'bold'
+              element.style.fontWeight = "bold"
               text += "<br>"
             }
             if (times > 1000) {
@@ -94,7 +95,9 @@
             }
         }
         function clearNames() {
-            document.getElementById('job-text-area').innerHTML = "Output Here."
+            let element = document.getElementById('job-text-area')
+            element.style.fontWeight = "bold"
+            element.innerHTML = "Output Here."
         }
     </script>
     <center>
