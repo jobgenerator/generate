@@ -79,7 +79,9 @@
                 
                 text += `${value} Assigned To ${key}<br>`
             }
-            
+            if (element.style.fontWeight === "bold") {
+                element.style.fontWeight = "400"
+            }
             element.innerHTML = text
             element.focus()
 
