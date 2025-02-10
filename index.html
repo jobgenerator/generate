@@ -47,7 +47,12 @@
                 }
             }
             let element = document.getElementById('job-text-area')
-            let text = element.innerHTML + "<br>"
+            let text = element.innerHTML 
+            if (text === "Output Here.") {
+              text = ""
+            } else {
+              text += "<br>"
+            }
             if (times > 5) {
               text = ""
               times = 0
@@ -66,20 +71,23 @@
 
         }
 
-        function test() {
+        function startJobs() {
             for (let i = 0; i < 1; i++) {
                 let names = ["HA", "AR", "BW", "GW", "AC", "HL", "RW", "AB"]
                 rotateonce(names, i + 1)
             }
         }
+        function clearNames() {
+            document.getElementById('job-text-area').innerHTML = "Output Here."
+        }
     </script>
     <center>
-        <input style= "border: 5px solid black; padding: 5%" type="Submit" value="Generate Names" onclick="test()">
+        <input style= "border: 5px solid black; padding: 5%" type="Submit" value="Generate Names" onclick="startJobs()">
+         <input style= "border: 5px solid black; padding: 5%" type="Submit" value="Clear Names" onclick="clearNames()">
         <br>
         <br>
         <div style="border: 5px solid black; padding: 5%">
-           <texarea id="job-text-area">
-        </texarea>
+           <texarea id="job-text-area">Output Here.</texarea>
         </div>
        
     </center>
