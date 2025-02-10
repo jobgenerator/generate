@@ -1,5 +1,10 @@
     <!DOCTYPE html>
 <html>
+    <head>
+        <script>
+           document.getElementById('job-text-area').style.fontWeight = "bold"
+        </script>
+    </head>
 
 <body style="width: 100%; background-color: #333333">
     <style>
@@ -14,6 +19,7 @@
         }
     </style>
     <script>
+        
         let times = 0
         function rotateonce(names, i) {
             let jobs = {
@@ -108,7 +114,7 @@
          <input style= "background-color: #999999; border: 5px solid black; padding: 5%" type="Submit" value="Clear Names" onclick="clearNames()">
         <br>
         <br>
-        <div style="background-color: #999999; border: 5px solid black; padding: 5%; font-weight: bold>
+        <div style="background-color: #999999; border: 5px solid black; padding: 5%>
            <texarea id="job-text-area">Output Here.</texarea>
         </div>
        
