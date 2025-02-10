@@ -48,7 +48,7 @@
             }
             let element = document.getElementById('job-text-area')
             let text = element.innerHTML + "<br>"
-            if (times > 4) {
+            if (times > 5) {
               text = ""
               times = 0
             }
@@ -74,10 +74,13 @@
         }
     </script>
     <center>
-        <input type="Submit" value="Generate Names" onclick="test()">
+        <input style= "border: 5px solid black" type="Submit" value="Generate Names" onclick="test()">
         <br>
-        <texarea id="job-text-area">
+        <div style="border: 5px solid black">
+           <texarea id="job-text-area">
         </texarea>
+        </div>
+       
     </center>
 </body>
 
